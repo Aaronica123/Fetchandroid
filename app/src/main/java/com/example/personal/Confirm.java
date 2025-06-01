@@ -54,7 +54,7 @@ butt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists() ){
-                    Toast.makeText(Confirm.this, "Exists", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Confirm.this, "Exist", Toast.LENGTH_LONG).show();
                 }
                 else{
                     Toast.makeText(Confirm.this, "Void", Toast.LENGTH_LONG).show();

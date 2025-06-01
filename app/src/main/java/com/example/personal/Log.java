@@ -1,5 +1,8 @@
 package com.example.personal;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,7 +32,7 @@ LinearLayout main1,main2,main3,main0;
 
 EditText name,email;
 TextView text;
-Button butt,butt1;
+Button butt,butt1,check;
 BeanM2 bean;
     BeanM3 bean1;
 String stname, stemail,stid;
@@ -42,34 +45,63 @@ main1=findViewById(R.id.main);
 main2=findViewById(R.id.main2);
 main3=findViewById(R.id.main3);
 main0=findViewById(R.id.main0);
-
-
+        main3.setVisibility(GONE);
+main0.setVisibility(GONE);
 name=findViewById(R.id.Name);
 email=findViewById(R.id.Email);
 text=findViewById(R.id.value);
         butt=findViewById(R.id.Submit);
 butt1=findViewById(R.id.Login);
 
+check=findViewById(R.id.Check);
+        generateUniqueRandomId();
+check.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        stname=name.getText().toString();
 
+        stemail=email.getText().toString();
+        if(!stemail.isEmpty() && !stname.isEmpty()){
+            main3.setVisibility(VISIBLE);
+            main0.setVisibility(VISIBLE);
 
-        if(name.getText()!=null || email.getText()==null){
-            generateUniqueRandomId();
         }
-
-
+        else{
+            main3.setVisibility(GONE);
+            main0.setVisibility(GONE);
+        }
+    }
+});
 butt.setOnClickListener(new View.OnClickListener() {
     @Override
 
     public void onClick(View v) {
         stname=name.getText().toString();
+
         stemail=email.getText().toString();
+
+
         stid=text.getText().toString();
-bean=new BeanM2(stname,stemail,stid);
+
+            bean=new BeanM2(stname,stemail,stid);
 setFirebase(bean);
+
+
 
     }
 });
 
+    }
+    private boolean check(String j){
+        boolean fir=false;
+        String p="";
+
+        if(j.isEmpty()){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 
@@ -118,6 +150,7 @@ DatabaseReference next=ref1.child("Table");
 
             }
             else{
+
                 text.setText(generatedId);
             }
         }
