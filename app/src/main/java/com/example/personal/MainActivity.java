@@ -3,7 +3,6 @@ package com.example.personal;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 EditText reg1,reg2,reg3;
-Button fetch,send;
+Button fetch,send,login;
 String streg1,streg2,streg3;
 
 BeanM bean;
@@ -39,6 +38,7 @@ reg2=findViewById(R.id.Reg2);
 reg3=findViewById(R.id.Reg3);
 send=findViewById(R.id.Send);
         fetch = findViewById(R.id.Fetch);
+login=findViewById(R.id.Login);
 
 
 
@@ -53,6 +53,12 @@ send=findViewById(R.id.Send);
         sendtoFirebase(bean);
     }
 });
+    }
+
+    public void jump6(View view){
+        Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
+        Intent intent=new Intent(this, Log.class);
+        startActivity(intent);
     }
 
     public void jump5(View view){
