@@ -77,6 +77,12 @@ Integer f;
          public void onClick(View v) {
              hold=name.getText().toString();
              hold1=marks.getText().toString();
+             if(hold.isEmpty()||hold1.isEmpty()){
+                 Toast.makeText(Data.this, "Enter data", Toast.LENGTH_SHORT).show();
+                 return;
+
+             }
+             else{
              if(check(hold1)){
                  bean=new BeanM3(hold,hold1);
                  taketoFirebase(bean);
@@ -84,7 +90,7 @@ Integer f;
              else{
                  Toast.makeText(Data.this, "Check the marks", Toast.LENGTH_SHORT).show();
                  return;
-             }
+             }}
 
          }
      });
@@ -120,6 +126,9 @@ public boolean check(String l){
        }
 
 }
+
+
+
     private void taketoFirebase(BeanM3 bean) {
         FirebaseDatabase db=FirebaseDatabase.getInstance();
         DatabaseReference results=db.getReference("message");
