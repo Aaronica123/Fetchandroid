@@ -1,21 +1,28 @@
 package com.example.personal;
 
 public class BeanM3 {
-String stid;
+String name,marks;
 
-    public BeanM3() {
+    public BeanM3() { }
+
+    public BeanM3(String name, String marks) {
+        this.name = name;
+        this.marks = marks;
     }
 
-    public BeanM3(String stid) {
-        this.stid = stid;
+    public String getName() {
+        return name;
     }
 
-    public String getStid() {
-        return stid;
+    public void setName(String name) {
+        this.name = name;
     }
 
+    public String getMarks() {
+        return marks;
+    }
 
-    public void setStid(String stid) {
-        this.stid = stid;
+    public void setMarks(String marks) {
+        this.marks = marks;
     }
 }

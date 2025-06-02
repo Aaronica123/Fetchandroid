@@ -1,5 +1,6 @@
 package com.example.personal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,7 +39,7 @@ butt.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         id=login.getText().toString();
-        bean1=new BeanM3(id);
+
         checkfromfirebase(id);
     }
 });
@@ -55,6 +56,8 @@ butt.setOnClickListener(new View.OnClickListener() {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists() ){
                     Toast.makeText(Confirm.this, "Exist", Toast.LENGTH_LONG).show();
+                    Intent intent=new Intent(Confirm.this, Data.class);
+                    startActivity(intent);
                 }
                 else{
                     Toast.makeText(Confirm.this, "Void", Toast.LENGTH_LONG).show();

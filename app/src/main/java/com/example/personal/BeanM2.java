@@ -3,6 +3,9 @@ package com.example.personal;
 public class BeanM2 {
     String text1,text2,text3;
 
+    public BeanM2() {
+    }
+
     public BeanM2(String text1, String text2, String text3) {
         this.text1 = text1;
         this.text2 = text2;

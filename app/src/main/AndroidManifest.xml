@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Personal"
         tools:targetApi="31">
         <activity
+            android:name=".ResultsDisplay"
+            android:exported="false" />
+        <activity
+            android:name=".Data"
+            android:exported="false" />
+        <activity
             android:name=".Confirm"
             android:exported="false" />
         <activity
