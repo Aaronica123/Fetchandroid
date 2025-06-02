@@ -56,7 +56,7 @@ text=findViewById(R.id.value);
 butt1=findViewById(R.id.Login);
 
 check=findViewById(R.id.Check);
-        generateUniqueRandomId();
+        generateRandomId();
 check.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
@@ -107,18 +107,13 @@ setFirebase(bean);
     }
 
 
-    private void setFirebase1(BeanM3 bean) {
-        FirebaseDatabase data= FirebaseDatabase.getInstance();
-        DatabaseReference ref1=data.getReference("message");
-        DatabaseReference next=ref1.child("Table");
-        if(bean!=null){
-            DatabaseReference newEntryRef = next.push();
-            newEntryRef.setValue(bean);
-            Toast.makeText(Log.this, "Data saved successfully!", Toast.LENGTH_SHORT).show();
-
-        }
+    public void clear(EditText one,EditText two){
+        one.setText("");
+        two.setText("");
 
     }
+
+
     private void setFirebase(BeanM2 bean) {
         FirebaseDatabase data= FirebaseDatabase.getInstance();
         DatabaseReference ref1=data.getReference("message");
@@ -135,12 +130,13 @@ DatabaseReference next=ref1.child("Table");
         Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
         Intent intent=new Intent(this, Confirm.class);
         startActivity(intent);
+clear(name,email);
     }
-    private void generateUniqueRandomId() {
+    private void generateRandomId() {
         Random random = new Random();
-        int min = 100; // Smallest 5-digit number
-        int max = 999; // Largest 5-digit number
-        String generatedId = String.valueOf(random.nextInt(max - min + 1) + min);
+        int small = 100; // Smallest 5-digit number
+        int big = 999; // Largest 5-digit number
+        String generatedId = String.valueOf(random.nextInt(big - small + 1) + small);
         FirebaseDatabase data= FirebaseDatabase.getInstance();
         DatabaseReference ref1=data.getReference("message");
         DatabaseReference next=ref1.child("Table");
@@ -148,7 +144,7 @@ DatabaseReference next=ref1.child("Table");
         @Override
         public void onDataChange(@NonNull DataSnapshot snapshot) {
             if(snapshot.exists()){
-                generateUniqueRandomId();
+                generateRandomId();
 
             }
             else{

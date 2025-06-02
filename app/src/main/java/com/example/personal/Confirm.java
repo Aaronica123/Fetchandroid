@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -41,6 +42,7 @@ butt.setOnClickListener(new View.OnClickListener() {
         id=login.getText().toString();
 
         checkfromfirebase(id);
+
     }
 });
     }
@@ -58,6 +60,7 @@ butt.setOnClickListener(new View.OnClickListener() {
                     Toast.makeText(Confirm.this, "Exist", Toast.LENGTH_LONG).show();
                     Intent intent=new Intent(Confirm.this, Data.class);
                     startActivity(intent);
+                    clear(login);
                 }
                 else{
                     Toast.makeText(Confirm.this, "Void", Toast.LENGTH_LONG).show();
@@ -70,5 +73,8 @@ butt.setOnClickListener(new View.OnClickListener() {
             }
         });
 
+    }
+    public void clear(EditText t){
+        t.setText("");
     }
 }
