@@ -6,22 +6,63 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
+android:gravity="center"
+    android:background="#FFEB3B"
+    tools:context=".Confirm">
+    <LinearLayout
+    android:id="@+id/main2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+        android:background="#fff"
+    tools:context=".Confirm"
+        android:layout_margin="30dp"
+        android:padding="30dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="LOGIN"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:textColor="#021137"
+            android:textStyle="bold"
+            />
+<LinearLayout
+    android:id="@+id/main1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+android:gravity="center"
     tools:context=".Confirm">
 
-    <EditText
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/Login1"
+        android:layout_weight="1"
+        android:text="ID"
+        android:textSize="25dp"
 
         />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/Login1"
+        android:hint="Enter ID"
+        android:textSize="25dp"
+
+        />
+</LinearLayout>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Submit"
         android:id="@+id/Submitt"
         android:layout_gravity="center"
+        android:layout_margin="20dp"
         />
+</LinearLayout>
+
 
 
 </LinearLayout>

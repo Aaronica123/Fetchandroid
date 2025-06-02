@@ -33,37 +33,27 @@ BeanM bean;
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-reg1=findViewById(R.id.Reg1);
-reg2=findViewById(R.id.Reg2);
-reg3=findViewById(R.id.Reg3);
+
 send=findViewById(R.id.Send);
-        fetch = findViewById(R.id.Fetch);
+
 login=findViewById(R.id.Login);
 
 
 
 
-        send.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        streg1=reg1.getText().toString();
-        streg2=reg2.getText().toString();
-        streg3=reg3.getText().toString();
-        bean=new BeanM(streg1,streg2,streg3);
-        sendtoFirebase(bean);
-    }
-});
+
+
     }
 
     public void jump6(View view){
         Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
-        Intent intent=new Intent(this, Log.class);
+        Intent intent=new Intent(this, Confirm.class);
         startActivity(intent);
     }
 
     public void jump5(View view){
         Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
-        Intent intent=new Intent(this, Resu.class);
+        Intent intent=new Intent(this, Log.class);
         startActivity(intent);
     }
     private void sendtoFirebase(BeanM bean) {

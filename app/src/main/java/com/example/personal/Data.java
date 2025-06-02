@@ -1,14 +1,19 @@
 package com.example.personal;
 
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.IntegerRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -29,8 +34,9 @@ String take1,fetch1,fetch2,fetch3;
 String hold,hold1;
 EditText fetch,name,marks;
 Button butt,butt1,butt2;
-
+LinearLayout field1,field2,field3,field4;
 BeanM3 bean;
+Integer f;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +50,15 @@ BeanM3 bean;
      take1=fetch.getText().toString();
      butt2=findViewById(R.id.packag);
      butt1=findViewById(R.id.retrieve);
+
+     field1=findViewById(R.id.main0);
+     field2=findViewById(R.id.main6);
+     field3=findViewById(R.id.main7);
+     field4=findViewById(R.id.main8);
+
+        field2.setVisibility(GONE);
+        field3.setVisibility(GONE);
+        field4.setVisibility(GONE);
 
      name=findViewById(R.id.fname);
      marks=findViewById(R.id.marks);
@@ -62,20 +77,49 @@ BeanM3 bean;
          public void onClick(View v) {
              hold=name.getText().toString();
              hold1=marks.getText().toString();
-             bean=new BeanM3(hold,hold1);
-             taketoFirebase(bean);
+             if(check(hold1)){
+                 bean=new BeanM3(hold,hold1);
+                 taketoFirebase(bean);
+             }
+             else{
+                 Toast.makeText(Data.this, "Check the marks", Toast.LENGTH_SHORT).show();
+                 return;
+             }
+
          }
      });
 
          butt.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            take1=fetch.getText().toString();
+            if (take1.isEmpty()) {
+                Toast.makeText(Data.this, "Please enter an ID to search.", Toast.LENGTH_SHORT).show();
+                text1.setText("No ID entered.");
+                text2.setText("");
+                text3.setText("");
+                return; // Exit the method if no ID is entered
+            }
+            else{
+                field2.setVisibility(VISIBLE);
+                field3.setVisibility(VISIBLE);
+                field4.setVisibility(VISIBLE);
+                fetchFirebase();
+            }
 
-            fetchFirebase();
         }
     });
     }
+public boolean check(String l){
+       f= Integer.valueOf(l);
+       if(f>0 && f<100){
+           return true;
+       }
+       else{
+           return false;
+       }
 
+}
     private void taketoFirebase(BeanM3 bean) {
         FirebaseDatabase db=FirebaseDatabase.getInstance();
         DatabaseReference results=db.getReference("message");

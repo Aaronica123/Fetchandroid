@@ -6,48 +6,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
+android:gravity="center"
+    android:background="#E91E63"
     tools:context=".Log">
-
+<LinearLayout
+    android:id="@+id/mainz"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+   android:background="#fff"
+    tools:context=".Log">
 <LinearLayout
     android:id="@+id/main1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:gravity="center"
+    android:layout_margin="1dp"
+    android:padding="5dp"
     tools:context=".Log">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Name"
         android:layout_weight="2"
+        android:textSize="20dp"
+
         />
     <EditText
         android:inputType="text"
-        android:digits="abcdefghijklmopqrstuvwxyzABCDEFGHIJKLMOPQRSTUVWXYZ"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         android:id="@+id/Name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Name"
         android:layout_weight="2"
+        android:textStyle="bold"
         />
 </LinearLayout>
     <LinearLayout
         android:id="@+id/main2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:gravity="center"
+        android:layout_margin="1dp"
+        android:padding="5dp"
         tools:context=".Log">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Email"
             android:layout_weight="2"
+            android:textSize="20dp"
+            android:textStyle="bold"
             />
+
         <EditText
             android:inputType="text"
-            android:digits="abcdefghijklmopqrstuvwxyzABCDEFGHIJKLMOPQRSTUVWXYZ"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@."
             android:hint="Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,38 +77,53 @@ android:id="@+id/Email"
             android:id="@+id/main4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_gravity="center"
             tools:context=".Log">
 
             <Button
+                android:layout_margin="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Check"
                 android:id="@+id/Check"
+                android:textSize="20dp"
 android:layout_gravity="center"
                 />
 
     </LinearLayout>
     <LinearLayout
         android:id="@+id/main0"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:gravity="center"
         tools:context=".Log">
         <Button
-            android:layout_width="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Submit"
             android:id="@+id/Submit"
+
+            android:textSize="20dp"
             />
+    </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mainr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            tools:context=".Log">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Login"
             android:id="@+id/Login"
             android:onClick="jump7"
+            android:textSize="20dp"
             />
 
 
@@ -102,7 +135,9 @@ android:layout_gravity="center"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        tools:context=".Log">
+        tools:context=".Log"
+        android:layout_margin="1dp"
+        android:padding="5dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -110,6 +145,7 @@ android:layout_gravity="center"
             android:layout_weight="2"
             android:gravity="center"
             android:textSize="30dp"
+            android:textStyle="bold"
             />
         <TextView
             android:id="@+id/value"
@@ -121,7 +157,7 @@ android:layout_gravity="center"
             android:layout_weight="2"
             />
 
-
+    </LinearLayout>
     </LinearLayout>
 </LinearLayout>
 

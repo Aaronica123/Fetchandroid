@@ -28,7 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Random;
 
 public class Log extends AppCompatActivity {
-LinearLayout main1,main2,main3,main0;
+LinearLayout main1,main2,main3,main0,mainr;
 
 EditText name,email;
 TextView text;
@@ -45,6 +45,8 @@ main1=findViewById(R.id.main);
 main2=findViewById(R.id.main2);
 main3=findViewById(R.id.main3);
 main0=findViewById(R.id.main0);
+mainr=findViewById(R.id.mainr);
+mainr.setVisibility(GONE);
         main3.setVisibility(GONE);
 main0.setVisibility(GONE);
 name=findViewById(R.id.Name);
@@ -82,7 +84,7 @@ butt.setOnClickListener(new View.OnClickListener() {
 
 
         stid=text.getText().toString();
-
+mainr.setVisibility(VISIBLE);
             bean=new BeanM2(stname,stemail,stid);
 setFirebase(bean);
 
